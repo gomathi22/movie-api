@@ -1,0 +1,11 @@
+/* movie-list */
+
+.movie-list {
+    padding-top: 20px;
+    padding-left:10px;
+    margin-bottom: 10px;
+    height:200px;
+    width:60%;
+    background-color:pink;;
+    text-align:left;
+}
