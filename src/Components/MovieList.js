@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { browserHistory  } from "react-router";
 import './movie-list.css';
+
 
 class MovieList extends Component {
   constructor(props) {
@@ -8,9 +10,8 @@ class MovieList extends Component {
     }
   }
 
-  viewItem(){
-    console.log("view :")
-    
+  viewItem(key){
+    browserHistory.push("/users/" + key);
   }
 
   render() {
@@ -19,8 +20,8 @@ class MovieList extends Component {
       <div className="movie-list">
           <h4>MOVIE TITLE : {this.props.title} </h4>
           <button onClick={()=> {
-            this.viewItem()
-          } }> VIEW</button>
+            this.viewItem(this.props.id)
+          } }> VIEW {this.props.id} </button>
       </div>
     );
   }
