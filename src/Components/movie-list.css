@@ -1,15 +1,27 @@
 /* movie-list */
 
 .movie-list {
-    padding-top: 20px;
-    padding-left:10px;
+    padding: 20px;
     margin-bottom: 10px;
-    height:200px;
-    width:60%;
-    background-color:pink;;
     text-align:left;
+    width:30%;
 }
 .movie-details {
     padding: 20px;
     background-color: aqua;
+}
+.imag{
+    width: 300px;
+}
+.imag img{
+    width: 100%;
+    height: 100%;
+}
+.pop-movies {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: scroll;
+    overflow-x: hidden;
 }

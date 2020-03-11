@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList';
+import './movie-list.css'
 
 class Movies extends Component {
     constructor(props) {
@@ -10,12 +11,13 @@ class Movies extends Component {
       }
     }
     componentDidMount() {
-      const url = "https://api.themoviedb.org/3/discover/movie?api_key=d272326e467344029e68e3c4ff0b4059&language=en-US&sort_by=popularity.desc";
-      const response = fetch(url);
-      const data =  response.json();
-      this.setState({
-        movies: data.results,
-        loading: false
+      fetch("https://api.themoviedb.org/3/discover/movie?api_key=d272326e467344029e68e3c4ff0b4059&language=en-US&sort_by=popularity.desc")
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          movies: json.results,
+          loading: false 
+        });
       });
     }
   
@@ -23,14 +25,16 @@ class Movies extends Component {
       const { movies } = this.state
       return (
         <div>
+
+          <h1>popular movies</h1>
+
           {this.state.loading || !this.state.movies ? <div>loading...</div>
             :
             <div>
-              <div>
+              <div className="pop-movies" >
                 {movies.map((movie, key) =>
-                <MovieList 
-                  id={movie.id}
-                  title={movie.original_title}
+                <MovieList
+                  movie={movie}
                 />
                 )}
               </div>

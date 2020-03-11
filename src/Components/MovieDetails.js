@@ -9,9 +9,12 @@ class MovieDetails extends Component {
   }
 
   render() {
+
+    const { id } =  this.props;
+    console.log(id)
+
     return (
       <div className="movie-details">
-
       </div>
     );
   }
