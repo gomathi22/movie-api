@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList';
-import './movie-list.css'
+import './movie-list.css';
 
 class Movies extends Component {
     constructor(props) {
@@ -25,16 +25,14 @@ class Movies extends Component {
       const { movies } = this.state
       return (
         <div>
-
           <h1>popular movies</h1>
-
           {this.state.loading || !this.state.movies ? <div>loading...</div>
             :
             <div>
               <div className="pop-movies" >
-                {movies.map((movie, key) =>
+                {movies.map((film, key) =>
                 <MovieList
-                  movie={movie}
+                  movie={film}
                 />
                 )}
               </div>

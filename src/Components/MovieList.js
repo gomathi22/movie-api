@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import './movie-list.css';
 
 class MovieList extends Component {
@@ -9,19 +9,17 @@ class MovieList extends Component {
     }
   }
   
-  render() {
 
+  render() {
     const { movie } = this.props
-    console.log(movie.poster_path)
+    console.log(movie)
     return (
       <div className="movie-list">
         <h4>MOVIE TITLE : {movie.original_title} </h4>
         <div className="imag">
-          <img src={" http://image.tmdb.org/t/p/w185/" + movie.poster_path} alt={movie.poster_path} />
+          <img src={"http://image.tmdb.org/t/p/w185/" + movie.poster_path} alt={movie.poster_path} />
         </div>
-        <button onClick={() => {
-          this.viewItem(movie.id)
-        }}> VIEW {movie.id} </button>
+        <Link to={`/movies/${movie.id}`}> VIEW</Link>
       </div>
     );
   }
